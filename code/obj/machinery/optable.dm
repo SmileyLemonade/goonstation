@@ -92,8 +92,7 @@ TYPEINFO(/obj/machinery/optable)
 			src.victim = M
 			qdel(W)
 			return
-	user.drop_item()
-	if(W?.loc)
+	if (user.drop_item() && W?.loc)
 		W.set_loc(get_turf(src))
 	return
 
