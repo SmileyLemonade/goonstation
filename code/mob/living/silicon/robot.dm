@@ -3358,6 +3358,7 @@ TYPEINFO(/mob/living/silicon/robot)
 
 	// Set loc and pickup our new tool in hand
 	new_tool.cant_drop = TRUE
+	new_tool.item_function_flags |= SILICON_ITEM
 	new_tool.set_loc(src)
 	new_tool.pickup(src)
 

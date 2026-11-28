@@ -39,6 +39,7 @@ ADMIN_INTERACT_PROCS(/obj/item/robot_module, proc/admin_add_tool, proc/admin_rem
 		// handle adding single instance of tool
 		var/obj/item/I = adding_contents
 		I.cant_drop = TRUE
+		I.item_function_flags |= SILICON_ITEM
 		if (I.max_stack > 1)
 			I.max_stack = CYBORG_STACK_CAPACITY
 		I.set_loc(src)

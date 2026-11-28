@@ -375,6 +375,9 @@ ABSTRACT_TYPE(/obj/item)
 			src.become_mimic()
 
 /obj/item/set_loc(var/newloc as turf|mob|obj in world, storage_check = TRUE)
+	if (src.item_function_flags & SILICON_ITEM)
+		if (!isnull(newloc) && !issilicon(newloc) && !istype(newloc, /obj/item/robot_module))
+			return
 	// storage check is meant as a catch-all/safety check for any explicit cases of
 	// if (src.stored)
 	//     src.stored.transfer_stored_item(src, newloc, user = usr)

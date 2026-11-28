@@ -67,6 +67,8 @@
 #define OBVIOUS_INTERACTION_BAR		(1<<6)
 /// When this item is build into an assembly, this flag will cause it to message an admin
 #define ASSEMBLY_NEEDS_MESSAGING	(1<<7)
+/// Prevents an item from leaving a silicon
+#define SILICON_ITEM				(1<<8)
 
 //tool flags
 #define TOOL_CLAMPING  (1<<0)

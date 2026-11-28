@@ -115,7 +115,8 @@ TYPEINFO(/mob/living/silicon/ghostdrone)
 
 		//Make all the tools un-drop-able (to closets/tables etc)
 		for (var/obj/item/O in src.tools)
-			O.cant_drop = 1
+			O.cant_drop = TRUE
+			O.item_function_flags |= SILICON_ITEM
 			if (O.max_stack > 1)
 				O.max_stack = GHOSTDRONE_STACK_CAPACITY
 
@@ -1214,7 +1215,8 @@ TYPEINFO(/mob/living/silicon/ghostdrone/deluxe)
 
 		//Make all the tools un-drop-able (to closets/tables etc)
 		for (var/obj/item/O in MT)
-			O.cant_drop = 1
+			O.cant_drop = TRUE
+			O.item_function_flags |= SILICON_ITEM
 			src.tools += O
 
 		real_name = real_name + "-DX"

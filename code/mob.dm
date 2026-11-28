@@ -1445,6 +1445,8 @@ TYPEINFO(/mob)
 	return
 
 /mob/proc/u_equip(obj/item/W)
+	if (isitem(W) && (W.item_function_flags & SILICON_ITEM))
+		return
 	if (W == src.r_hand)
 		src.r_hand = null
 	if (W == src.l_hand)
