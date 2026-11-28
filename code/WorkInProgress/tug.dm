@@ -19,6 +19,11 @@ TYPEINFO(/obj/tug_cart)
 		if (!istype(C)|| C.anchored || BOUNDS_DIST(user, src) > 0 || BOUNDS_DIST(src, C) > 0 )
 			return
 
+		var/obj/item/I = C
+		if (istype(I) && I.cant_drop)
+			boutput(user, SPAN_ALERT("You can't put that on \the [src] when it's attached to you!"))
+			return
+
 		if (istype(C, /mob/dead/))
 			return
 
@@ -105,6 +110,8 @@ TYPEINFO(/obj/tug_cart)
 		// if an item, ensure any mob holding it isn't anymore
 		var/obj/item/holdable = C
 		if (istype(holdable))
+			if (holdable.cant_drop)
+				return
 			holdable.force_drop()
 
 		C.set_loc(src.loc)

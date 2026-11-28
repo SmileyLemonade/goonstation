@@ -86,6 +86,9 @@ TYPEINFO(/obj/machinery/mixer)
 		if (!proceed)
 			boutput(user, SPAN_ALERT("You can't put that in the mixer!"))
 			return
+		if (W.cant_drop)
+			boutput(user, SPAN_ALERT("You can't put that in the [src] when it's attached to you!"))
+			return
 		user.visible_message(SPAN_NOTICE("[user] puts [W] into the [src]."))
 		user.u_equip(W)
 		W.set_loc(src)
