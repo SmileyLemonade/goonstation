@@ -365,7 +365,7 @@ TYPEINFO_NEW(/obj/table)
 			return
 
 		var/obj/item/I = O
-		if (isrobot(user) || user.equipped() != I || (I.cant_drop || I.cant_self_remove))
+		if (issilicon(user) || user.equipped() != I || (I.cant_drop || I.cant_self_remove))
 			return
 
 		I.stored?.transfer_stored_item(I, get_turf(I), user = user)
